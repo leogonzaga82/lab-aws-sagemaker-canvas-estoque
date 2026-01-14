@@ -1,40 +1,44 @@
-📊 Previsão de Estoque Inteligente com AWS SageMaker Canvas
-Este projeto foi desenvolvido para demonstrar o uso do Amazon SageMaker Canvas na criação de modelos de previsão de estoque sem a necessidade de escrever código (No-Code Machine Learning).
+# 📊 Previsão de Estoque Inteligente com AWS SageMaker Canvas
 
-🎯 Objetivos
-O objetivo foi prever a demanda futura (QUANTIDADE_ESTOQUE) baseada em dados históricos, ajudando na tomada de decisão para reposição de produtos.
+Este projeto demonstra o uso do **Amazon SageMaker Canvas** para criar modelos de previsão de estoque baseados em Machine Learning sem a necessidade de escrever código (No-Code ML).
 
-🛠️ Tecnologias Utilizadas
-AWS SageMaker Canvas: Para treinamento e análise do modelo preditivo.
+![Certificação DIO](dio.jpg)
 
-Dataset: Arquivo CSV contendo histórico de vendas e preços.
+## 🎯 Objetivos
+O objetivo principal foi prever a demanda futura (`QUANTIDADE_ESTOQUE`) para otimizar a reposição de produtos, utilizando dados históricos de vendas e preços.
 
-GitHub: Para documentação e versionamento do projeto.
+## 🛠️ Tecnologias Utilizadas
+* **AWS SageMaker Canvas**: Plataforma de ML utilizada para treinamento e análise.
+* **Amazon S3**: Para armazenamento dos datasets na região de Ohio (us-east-2).
+* **GitHub**: Para versionamento e documentação do projeto.
 
-📈 Resultados do Modelo (Métricas)
-O modelo foi treinado com sucesso e apresentou as seguintes métricas de performance na aba Analyze:
+## 🚀 Passo a Passo Realizado
 
-MAPE (Erro Médio Percentual Absoluto): 0.148 (Precisão de ~85%).
+### 1. Configuração do Dataset
+O dataset foi configurado identificando a coluna `ID_PRODUTO` como identificador único e `QUANTIDADE_ESTOQUE` como a meta de previsão (Target).
 
-WAPE: 0.100.
+![Configuração do Dataset](dataset.jpg)
 
-RMSE: 5.765.
+### 2. Gerenciamento de Modelos
+No console do SageMaker Canvas, organizamos as versões e o status de treinamento do projeto.
 
-🚀 Passo a Passo Realizado
-1. Preparação do Dataset
-Os dados foram importados e configurados, identificando as colunas de ID do produto, data e o alvo da previsão.
+![Meus Modelos](models.jpg)
 
-2. Treinamento (Build)
-Utilizamos a opção Quick Build para treinar o modelo de série temporal.
+### 3. Análise de Performance
+Após o treinamento utilizando o **Quick Build**, o modelo apresentou métricas sólidas de precisão:
 
-3. Previsões Individuais (Predict)
-Na aba Predict, geramos previsões para itens específicos para visualizar a tendência futura de estoque.
+![Análise das Métricas](analyze.jpg)
 
-🧹 Gestão de Recursos (FinOps)
-Seguindo as boas práticas de gestão de nuvem, após a conclusão do projeto:
+* **MAPE (Erro Médio Percentual Absoluto):** `0.148` (Precisão de aproximadamente 85%).
+* **WAPE:** `0.100`.
+* **RMSE:** `5.765`.
 
-Os prints foram capturados para documentação.
+### 4. Resultados das Previsões
+Na aba **Predict**, foi gerado um gráfico de tendência para itens individuais, mostrando o comportamento esperado do estoque para os próximos dias.
 
-O Log out foi realizado para encerrar a sessão do Canvas.
+![Gráfico de Previsão](single_prediction_results.png)
 
-O modelo e o dataset foram removidos da conta AWS na região de Ohio (us-east-2) para evitar cobranças indesejadas.
+## 🧹 Gestão de Recursos (FinOps)
+Seguindo o modelo de responsabilidade compartilhada da AWS, os recursos foram encerrados após a captura das evidências para evitar custos desnecessários:
+* **Log out** realizado no SageMaker Canvas.
+* **Deleção** do modelo e do dataset na conta AWS.
